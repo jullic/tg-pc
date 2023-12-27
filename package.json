@@ -1,0 +1,14 @@
+{
+  "name": "pc-control-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.5"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "fs-extra": "^11.2.0",
+    "telegraf": "^4.15.3"
+  }
+}
