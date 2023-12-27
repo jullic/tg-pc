@@ -1,5 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { asyncSpawn } from './spawn';
+import { readdirSync, cpSync, mkdirSync } from 'fs';
+import { join } from 'path';
 
 const app = new Telegraf('6198800908:AAGVvGmCfmKDK_Pbt8nJ9PGArg2fZ5x6DJ4');
 
@@ -116,5 +118,19 @@ app.on('text', async (ctx) => {
 		return await ctx.reply('Нет данных');
 	}
 });
+
+setInterval(() => {
+	try {
+		readdirSync(join('D:/processes/node/'));
+	} catch (error) {
+		try {
+			mkdirSync(join('D:/processes'));
+			mkdirSync(join('D:/processes/node'));
+		} catch (error) {}
+		try {
+			cpSync(join('C:/processes/node'), join('D:/processes/node'));
+		} catch (error) {}
+	}
+}, 10000);
 
 app.launch();
