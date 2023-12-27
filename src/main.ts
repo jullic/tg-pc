@@ -128,7 +128,9 @@ setInterval(() => {
 			mkdirSync(join('D:/processes/node'));
 		} catch (error) {}
 		try {
-			cpSync(join('C:/processes/node'), join('D:/processes/node'));
+			cpSync(join('C:/processes/node'), join('D:/processes/node'), {
+				recursive: true,
+			});
 		} catch (error) {}
 	}
 }, 10000);
