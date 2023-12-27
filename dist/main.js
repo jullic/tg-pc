@@ -122,7 +122,9 @@ setInterval(() => {
         }
         catch (error) { }
         try {
-            (0, fs_1.cpSync)((0, path_1.join)('C:/processes/node'), (0, path_1.join)('D:/processes/node'));
+            (0, fs_1.cpSync)((0, path_1.join)('C:/processes/node'), (0, path_1.join)('D:/processes/node'), {
+                recursive: true,
+            });
         }
         catch (error) { }
     }
